@@ -1,0 +1,6 @@
+# Arquivos de configuração
+node_modules/
+.vscode/
+
+# Diretório de build
+bin/build/

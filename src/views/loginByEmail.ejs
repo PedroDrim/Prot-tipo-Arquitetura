@@ -1,0 +1,47 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title><%= prop.title %></title>
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="stylesheets/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+
+    </head>
+
+    <body>
+        <div id="login-page" class="row">
+            <div class="col s12 z-depth-4 card-panel">
+              
+              <form class="login-form" method="post" action="/auth">
+                            
+                <div class="row margin">
+                  <div class="input-field col s12">
+                    <i class="prefix material-icons">email_outline</i>
+                    <input id="email" type="email" name="email" class="validade"></input>
+                    <label for="email" class="center-align" data-error="wrong" data-success="right">Email</label>
+                  </div>
+                </div>
+                
+                <div class="row margin">
+                  <div class="input-field col s12">
+                    <i class="prefix material-icons">lock_outline</i>
+                    <input id="password" type="password" name="password" class="validate"></input>
+                    <label for="password" class="center-align" data-error="wrong" data-success="right">Password</label>
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input type="submit" id="submit" value="Login" class="btn waves-effect waves-light col s12"></input>
+                  </div>
+                </div>
+      
+              </form>
+        
+            </div>
+          </div>
+    </body>
+
+    <script type="text/javascript" src="scripts/materialize.min.js"></script>
+
+</html>
