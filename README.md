@@ -22,7 +22,6 @@ git clone https://github.com/PedroDrim/Prototipo-Arquitetura.git
 ```
 
 ## Via docker
-```
 2. Dentro do diretório **Servidor** monte o container com o Docker da aplicação com: 
 ```
 sudo docker build -t <nome do container> .
