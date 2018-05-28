@@ -19,9 +19,9 @@ Protótipo para a materia de arquitetura de software utilizando as seguintes fer
 1. Clone o repositório com:
 ```
 git clone https://github.com/PedroDrim/Prototipo-Arquitetura.git
+```
 
 ## Via docker
-```
 2. Dentro do diretório **MainApp** monte o container com o Docker da aplicação com: 
 ```
 sudo docker build -t <nome do container> .
@@ -36,7 +36,6 @@ sudo docker rmi -f <nome do container>
 ```
 
 ## Via npm
-```
 2. Instale o gulp com o comando: 
 ```
 sudo npm install gulp-cli -g && npm install gulp -D 
