@@ -22,7 +22,7 @@ git clone https://github.com/PedroDrim/Prototipo-Arquitetura.git
 
 ## Via docker
 ```
-2. Dentro do diretório **MainApp** monte o container com o Docker da aplicação com: 
+2. Dentro do diretório **Servidor** monte o container com o Docker da aplicação com: 
 ```
 sudo docker build -t <nome do container> .
 ```
@@ -41,15 +41,15 @@ sudo docker rmi -f <nome do container>
 ```
 sudo npm install gulp-cli -g && npm install gulp -D 
 ```
-3. Instale as dependências npm:
+3. Dentro do diretório **Servidor**, instale as dependências npm:
 ```
 npm install
 ```
-4. Compile o protótipo com:
+4. Dentro do diretório **Servidor**, compile o protótipo com:
 ```
 npm run build
 ```
-5. Execute o protótipo:
+5. Dentro do diretório **Servidor**, execute o protótipo:
 ```
 npm start
 ```
