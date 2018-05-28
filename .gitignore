@@ -1,6 +1,7 @@
 # Arquivos de configuração
-node_modules/
+MainApp/node_modules/
+AuxApp/node_modules/
 .vscode/
 
 # Diretório de build
-bin/build/
+MainApp/bin/build/
