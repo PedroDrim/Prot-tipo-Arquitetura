@@ -1,45 +1,59 @@
-import { User } from "../model/User";
-import { InterfaceAuthentication } from "../model/InterfaceAuthentication";
+import { User } from "../entity/User";
+import { InterfaceFactory } from "../entity/interfaces/InterfaceFactory";
+import { UserFactory } from "../extractor/UserFactory";
+import { InterfaceAuthentication } from "../entity/interfaces/InterfaceAuthentication";
+import { InvalidParameterException } from "../provider/exceptions/InvalidParameterException";
 
 /**
  * Classe responsável por autenticar um usuário
  */
  export class Authentication implements InterfaceAuthentication {
      
-    private usuario: User;
     private id: string;
+    private interfaceFactory: InterfaceFactory;
 
-    constructor(usuario: User){
-        this.usuario = usuario;
+    constructor(){
+        this.interfaceFactory = new UserFactory();
         this.id = null;
     }
 
-    authenticateByEmail(email: string, password: string): boolean {
+    public authenticateByEmail(email: string, password: string): boolean {
+        if(email == null || email == undefined)
+            throw new InvalidParameterException("Parametro email é 'null'");
+
+        if(password == null || password == undefined)
+            throw new InvalidParameterException("Parametro password é 'null'");
         
-        let validationEmail: boolean = (email == this.usuario.getEmail())
-        let validationPassword: boolean = (password == this.usuario.getPassword())
+        let usuario: User = this.interfaceFactory.createUser();
+
+        let validationEmail: boolean = (email == usuario.getEmail())
+        let validationPassword: boolean = (password == usuario.getPassword())
         
         if(validationPassword && validationEmail)
-            this.id = this.usuario.getName();    
+            this.id = usuario.getName();    
         
         return(validationPassword && validationEmail);
     }
 
-    authenticateByToken(token: string): boolean {
-        
-        let validationToken: boolean = (token == this.usuario.getToken())
+    public authenticateByToken(token: string): boolean {
+        if(token == null || token == undefined)
+            throw new InvalidParameterException("Parametro token é 'null'");
+
+        let usuario: User = this.interfaceFactory.createUser();
+
+        let validationToken: boolean = (token == usuario.getToken())
         
         if(validationToken)
-            this.id = this.usuario.getName();    
+            this.id = usuario.getName();    
         
         return(validationToken);
     }
 
-    isConnected(): boolean {
+    public isConnected(): boolean {
         return(this.id != null);
     }
 
-    getId(): string {
+    public getId(): string {
         return(this.id);
     }
 }

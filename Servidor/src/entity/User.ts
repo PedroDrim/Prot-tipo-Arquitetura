@@ -1,4 +1,4 @@
-import { InvalidParameterException } from "../provider/InvalidParameterException";
+import { InvalidParameterException } from "../provider/exceptions/InvalidParameterException";
 
 /**
  * Classe responsável por representar um usuário
@@ -32,7 +32,7 @@ import { InvalidParameterException } from "../provider/InvalidParameterException
 
         this.token = token;
     }
-
+    
     public getName(): string{
         return(this.name);
     }

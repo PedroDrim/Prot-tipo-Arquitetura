@@ -11,10 +11,10 @@ import * as favicon from "serve-favicon";
 import * as errorHandler from "errorhandler";
 import * as cors from "cors";
 
-import { InterfaceRouter } from "./model/InterfaceRouter";
+import { InterfaceRouter } from "./entity/interfaces/InterfaceRouter";
 import { IndexRoute } from "./routes/IndexRoute";
 import { AuthRoute } from "./routes/AuthRoute";
-import { ServiceRoute } from "./routes/ServiceRoute";
+import { ExceptionCollector } from "./provider/ExceptionCollector";
 
 // Import de Bibliotecas em javascript
 var busboy = require("connect-busboy");
@@ -122,16 +122,24 @@ export class Server {
 
     //Inicia as rotas definidas em IndexRoute
     let indexRoute: InterfaceRouter = new IndexRoute();
-    indexRoute.addRoutesToGET(router);
+
+    try {
+      indexRoute.addRoutesToGET(router);
+    } catch (error) {
+      let collector: ExceptionCollector = new ExceptionCollector();
+      collector.collect(error);
+    }
 
     //Inicia as rotas definidas em AuthRoute
     let authRoute: InterfaceRouter = new AuthRoute();
-    authRoute.addRoutesToGET(router);
-    authRoute.addRoutesToPOST(router);
-
-    //Inicia as rotas definidas em ServiceRoute
-    // let serviceRoute: InterfaceRouter = new ServiceRoute();
-    // serviceRoute.addRoutesToPOST(router);
+    
+    try {  
+      authRoute.addRoutesToGET(router);
+      authRoute.addRoutesToPOST(router);
+    } catch (error) {
+      let collector: ExceptionCollector = new ExceptionCollector();
+      collector.collect(error);
+    }
 
     //Utiliza router middleware
     this.app.use(router);
