@@ -14,14 +14,30 @@ export class IndexRoute implements InterfaceRouter {
 
     //Get Rota padrão (index)
     router.get("/", (req: Request, res: Response) => {
+      res.redirect("/byEmail");
+    });
+
+    //Get Rota auth
+    router.get("/byEmail", (req: Request, res: Response) => {
 
       //set options
       let options: Object = {
         "title": "Protótipo"
       };
-
+    
       var view: string = "loginByEmail";
       res.render(view, { prop: options });
+    });
+    
+    router.get("/byToken", (req: Request, res: Response) => {
+    
+      //set options
+      let options: Object = {
+        "title": "Protótipo"
+      };
+     
+      var view: string = "loginByToken";
+        res.render(view, { prop: options });
     });
   }
   

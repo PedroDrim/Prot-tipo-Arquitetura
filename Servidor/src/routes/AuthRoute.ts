@@ -26,8 +26,7 @@ export class AuthRoute implements InterfaceRouter {
     if(router == null || router == undefined)
       throw new InvalidParameterException("Parametro router é 'null'");
 
-    //Get Rota auth
-    router.get("/auth", (req: Request, res: Response) => {
+    router.get("/auth/redirect", (req: Request, res: Response) => {
 
       if(this.auth.isConnected()) {
         //set options
@@ -41,7 +40,6 @@ export class AuthRoute implements InterfaceRouter {
       } else
         res.send("Erro ao connectar.");
     });
-    
   }
 
   public addRoutesToPOST(router: Router) {
@@ -64,7 +62,7 @@ export class AuthRoute implements InterfaceRouter {
       }
   
       if(isAutentic)
-        res.redirect("/auth");
+        res.redirect("/auth/redirect");
       else
         res.status(400).send("Não foi possível autenticar usuário.");
     });      
@@ -83,7 +81,7 @@ export class AuthRoute implements InterfaceRouter {
       }
 
       if(isAutentic)
-        res.redirect("/auth");
+        res.redirect("/auth/redirect");
       else 
         res.status(400).send("Não foi possível autenticar usuário.");
     });

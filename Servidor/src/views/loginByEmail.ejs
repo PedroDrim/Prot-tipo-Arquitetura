@@ -5,7 +5,6 @@
 
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="stylesheets/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
-
     </head>
 
     <body>
@@ -16,17 +15,17 @@
                             
                 <div class="row margin">
                   <div class="input-field col s12">
+                    <p>Email</p>
                     <i class="prefix material-icons">email_outline</i>
-                    <input id="email" type="email" name="email" class="validade"></input>
-                    <label for="email" class="center-align" data-error="wrong" data-success="right">Email</label>
+                    <input id="email" type="email" name="email" class="validade"></input>                    
                   </div>
                 </div>
                 
                 <div class="row margin">
                   <div class="input-field col s12">
+                    <p>Password</p>
                     <i class="prefix material-icons">lock_outline</i>
                     <input id="password" type="password" name="password" class="validate"></input>
-                    <label for="password" class="center-align" data-error="wrong" data-success="right">Password</label>
                   </div>
                 </div>
                 
@@ -38,6 +37,10 @@
       
               </form>
         
+              <div class="row">
+                  <a class="waves-effect waves-light btn" href="/byToken">By Token</a>
+              </div>
+              
             </div>
           </div>
     </body>

@@ -9,6 +9,6 @@ import { InvalidParameterException } from "../provider/exceptions/InvalidParamet
         if(error == null || error == undefined)
             throw new InvalidParameterException("Parametro error é 'null'");
 
-        console.log(error.stack);
+        console.log(error.message);
     }
 }
